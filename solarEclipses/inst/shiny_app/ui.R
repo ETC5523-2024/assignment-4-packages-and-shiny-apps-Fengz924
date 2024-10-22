@@ -1,51 +1,59 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    https://shiny.posit.co/
-#
-
+# Load necessary libraries
 library(shiny)
+library(shinydashboard)
 
-# Define UI for application that draws a histogram
-ui <- fluidPage(
+# Define the UI using shinydashboard
+ui <- dashboardPage(
+  dashboardHeader(title = "Eclipse Data Explorer"),
 
-  # Application title
-  titlePanel("Solar Eclipses"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
+      menuItem("About", tabName = "about", icon = icon("info-circle"))
+    )
+  ),
 
-  # Sidebar with a slider input for number of bins
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
-    ),
-
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
+  dashboardBody(
+    tabItems(
+      # Dashboard Tab
+      tabItem(
+        tabName = "dashboard",
+        fluidRow(
+          box(
+            title = "Filters", status = "primary", solidHeader = TRUE, width = 4,
+            selectInput(
+              inputId = "eclipse_type",
+              label = "Select Eclipse Type:",
+              choices = unique(eclipse_data$Type),
+              selected = unique(eclipse_data$Type)[1]
+            ),
+            sliderInput(
+              inputId = "duration_filter",
+              label = "Select Minimum Duration (in minutes):",
+              min = min(eclipse_data$duration, na.rm = TRUE),
+              max = max(eclipse_data$duration, na.rm = TRUE),
+              value = min(eclipse_data$duration, na.rm = TRUE)
+            )
+          ),
+          box(
+            title = "Eclipse Plot", status = "primary", solidHeader = TRUE, width = 8,
+            plotOutput("eclipsePlot", height = 300)
+          )
+        ),
+        fluidRow(
+          box(
+            title = "Filtered Data", status = "info", solidHeader = TRUE, width = 12,
+            tableOutput("filteredData")
+          )
+        )
+      ),
+      # About Tab
+      tabItem(
+        tabName = "about",
+        h3("About the Eclipse Data Explorer"),
+        p("This dashboard allows users to explore eclipses by type and duration."),
+        p("Use the filters to adjust the plot and table, discovering trends in the data.")
+      )
     )
   )
 )
-
-# Define server logic required to draw a histogram
-server <- function(input, output) {
-
-  output$distPlot <- renderPlot({
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white',
-         xlab = 'Waiting time to next eruption (in mins)',
-         main = 'Histogram of waiting times')
-  })
-}
-
-# Run the application
-shinyApp(ui = ui, server = server)
