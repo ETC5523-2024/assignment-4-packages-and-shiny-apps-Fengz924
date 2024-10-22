@@ -10,10 +10,79 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
   comment = "#>"
 )
 ```
 
+This dataset includes 4,141 observations and 12 variables recorded in 2023 and 2024 across various locations. It encompasses multiple variables, such as eclipse type, geographical coordinates, and the duration of the eclipse at different sites.
+
+
 ```{r setup}
 library(solarEclipses)
 ```
+
+To explore the data, make sure it is available by calling on the object eclipse_data. Here's how you can view the first few rows of the dataset:
+```{r}
+# Load the eclipse dataset
+data("clean_eclipse_data")
+
+# Display the first 10 rows
+head(clean_eclipse_data, 10)
+
+```
+
+Interactive Bubble Plot: Longitude vs Latitude with Duration
+
+This plot visualizes the eclipse events based on their longitude and latitude. Each bubble size reflects the duration of the eclipse at the respective location, and you can hover over the bubbles to get additional details.
+
+```{r}
+# Load the necessary library
+library(plotly)
+
+# Create an interactive bubble plot
+p <- ggplot(clean_eclipse_data, aes(
+  x = lon,
+  y = lat,
+  size = duration,
+  color = Type,
+  text = paste(
+    "Location: ", name, "<br>",
+    "Type: ", Type, "<br>",
+    "Duration: ", duration, " mins"
+  )
+)) +
+  geom_point(alpha = 0.6) +
+  scale_size(range = c(1, 10), name = "Duration (mins)") +
+  theme_minimal() +
+  labs(
+    title = "Bubble Plot: Eclipse Locations and Duration",
+    x = "Longitude",
+    y = "Latitude"
+  )
+
+# Convert to an interactive plot using plotly
+ggplotly(p, tooltip = "text")
+
+```
+
+Heatmap: State vs Eclipse Type with Duration
+
+We can also use a scatter plot to show how the duration of eclipses varies across states for different types of eclipses.
+```{r}
+# Create a scatter plot of eclipse locations
+ggplot(clean_eclipse_data, aes(x = lon, y = lat, color = duration)) +
+  geom_point(size = 3) +
+  labs(
+    title = "Eclipse Locations and Duration",
+    x = "Longitude",
+    y = "Latitude",
+    color = "Duration (min)"
+  ) +
+  theme_minimal()
+```
+
+
+Conclusion
+There are many ways to explore the eclipse data. You can experiment with other plots, filter the data by eclipse type or location, and gain more insights.

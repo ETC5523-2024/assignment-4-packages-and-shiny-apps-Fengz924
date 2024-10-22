@@ -14,8 +14,8 @@ You can install the development version of solarEclipses from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("ETC5523-2024/assignment-4-packages-and-shiny-apps-Fengz924")
+# Install the development version from GitHub
+devtools::install_github("yourusername/solarEclipses")
 ```
 
 ## Example
@@ -24,7 +24,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(solarEclipses)
-## basic example code
+filter_eclipse("Annular 2023")
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`?
