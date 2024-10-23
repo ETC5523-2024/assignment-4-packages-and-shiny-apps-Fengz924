@@ -22,11 +22,11 @@ The goal of solarEclipses is to provide easy access to clean and structured data
 
 ## Installation
 
-You can install the development version of solarEclipses from [GitHub](https://github.com/) with:
+You can install the development version of solarEclipses from [GitHub](https://github.com/) using the `remotes` package with:
 
 ``` r
-# Install the development version from GitHub
-devtools::install_github("Fengz924/solarEclipses")
+# Install.package("remotes")
+remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-Fengz924", subdir = "solarEclipses")
 ```
 
 ## Example
@@ -40,7 +40,7 @@ data("clean_eclipse_data")
 
 The following code allow you to see the summary of the dataset:
 
-```{r cars}
+```{r}
 summary(clean_eclipse_data)
 ```
 

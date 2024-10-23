@@ -14,13 +14,13 @@ attributes, including date, location, duration, and name.
 
 ## Installation
 
-You can install the development version of solarEclipses from
-[GitHub](https://github.com/) with:
+You can install the development version of solarEclipses from [GitHub](https://github.com/) using the `remotes` package with:
 
 ``` r
-# Install the development version from GitHub
-devtools::install_github("Fengz924/solarEclipses")
+# Install.package("remotes")
+remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-Fengz924", subdir = "solarEclipses")
 ```
+
 
 ## Example
 
