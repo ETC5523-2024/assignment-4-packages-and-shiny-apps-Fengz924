@@ -53,10 +53,9 @@ plot(clean_eclipse_data$duration)
 
 
 ## Shiny
-There are also ShinyApp include in the package:
+The `solarEclipses::launch_app()` function starts an interactive Shiny application that allows users to explore data related to solar eclipses visually. 
 ```{r}
 solarEclipses::launch_app()
-
 ```
 
 

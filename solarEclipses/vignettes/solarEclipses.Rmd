@@ -21,6 +21,9 @@ This dataset includes 4,141 observations and 12 variables recorded in 2023 and 2
 
 ```{r setup}
 library(solarEclipses)
+library(tidyverse)
+library(ggplot2)
+library(plotly)
 ```
 
 To explore the data, make sure it is available by calling on the object eclipse_data. Here's how you can view the first few rows of the dataset:
@@ -85,6 +88,13 @@ ggplot(clean_eclipse_data, aes(x = lon, y = lat, color = duration)) +
   theme_minimal()
 ```
 
+## Shiny - Interactive plots
+
+The `solarEclipses::launch_app()` function starts an interactive Shiny application that allows users to explore data related to solar eclipses visually. Through dynamic plots and user-friendly controls, the app provides insights into eclipse paths, timings, and other relevant details.
+
+```{r eval=FALSE}
+solarEclipses::launch_app()
+```
 
 ***Conclusion***
 

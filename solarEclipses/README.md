@@ -71,3 +71,10 @@ Plot showing eclipse durations by geographic locations.
 </p>
 
 </div>
+
+
+## Shiny
+The `solarEclipses::launch_app()` function starts an interactive Shiny application that allows users to explore data related to solar eclipses visually. 
+``` r
+solarEclipses::launch_app()
+```
