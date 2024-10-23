@@ -47,7 +47,7 @@ summary(clean_eclipse_data)
 
 You can also embed plots, for example:
 
-```{r pressure, echo = FALSE}
+```{r echo=FALSE, fig.cap="Plot showing eclipse durations by geographic locations."}
 plot(clean_eclipse_data$duration)
 ```
 

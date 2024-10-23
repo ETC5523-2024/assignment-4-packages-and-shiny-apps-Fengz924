@@ -59,5 +59,15 @@ summary(clean_eclipse_data)
 ```
 
 You can also embed plots, for example:
+``` r
+plot(clean_eclipse_data$duration)
+```
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+<div class="figure">
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" alt="Plot showing eclipse durations by geographic locations." width="100%" />
+<p class="caption">
+Plot showing eclipse durations by geographic locations.
+</p>
+
+</div>
