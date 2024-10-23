@@ -34,13 +34,12 @@ head(clean_eclipse_data, 10)
 summary(clean_eclipse_data)
 ```
 
-Interactive Bubble Plot: Longitude vs Latitude with Duration
+***Interactive Bubble Plot: Longitude vs Latitude with Duration***
 
-This plot visualizes the eclipse events based on their longitude and latitude. Each bubble size reflects the duration of the eclipse at the respective location, and you can hover over the bubbles to get additional details.
+This plot visualizes the eclipse events based on their longitude and latitude. Each bubble size reflects the duration of the eclipse at the respective location.
 
 
-
-```{r, fig.cap="Bubble plot of eclipse locations by longitude and latitude." }
+```{r, fig.cap="Figure 1: Bubble plot of eclipse locations by longitude and latitude." }
 # Load the necessary library
 library(plotly)
 
@@ -70,10 +69,10 @@ ggplotly(p, tooltip = "text")
 
 ```
 
-Heatmap: State vs Eclipse Type with Duration
+***Scatter plot: State vs Eclipse Type with Duration***
 
 We can also use a scatter plot to show how the duration of eclipses varies across states for different types of eclipses.
-```{r, fig.cap="Scatter plot showing the eclipse locations based on longitude and latitude."}
+```{r, fig.cap="Figure 2: Scatter plot showing the eclipse locations based on longitude and latitude."}
 # Create a scatter plot of eclipse locations
 ggplot(clean_eclipse_data, aes(x = lon, y = lat, color = duration)) +
   geom_point(size = 3) +
@@ -87,5 +86,6 @@ ggplot(clean_eclipse_data, aes(x = lon, y = lat, color = duration)) +
 ```
 
 
-Conclusion
+***Conclusion***
+
 There are many ways to explore the eclipse data. You can experiment with other plots, filter the data by eclipse type or location, and gain more insights.
