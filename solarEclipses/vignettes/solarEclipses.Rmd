@@ -31,6 +31,7 @@ data("clean_eclipse_data")
 # Display the first 10 rows
 head(clean_eclipse_data, 10)
 
+summary(clean_eclipse_data)
 ```
 
 Interactive Bubble Plot: Longitude vs Latitude with Duration

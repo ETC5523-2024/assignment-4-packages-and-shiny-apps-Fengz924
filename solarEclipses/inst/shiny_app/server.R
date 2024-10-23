@@ -2,6 +2,7 @@
 library(shiny)
 library(dplyr)
 library(ggplot2)
+library(solarEclipses)
 
 # Load the dataset from the package
 data("eclipse_data", package = "solarEclipses")
@@ -11,7 +12,7 @@ server <- function(input, output) {
 
   # Reactive filter for the dataset based on user input
   filtered_data <- reactive({
-    eclipse_data %>%
+    clean_eclipse_data %>%
       filter(Type == input$eclipse_type & duration >= input$duration_filter)
   })
 
@@ -29,3 +30,4 @@ server <- function(input, output) {
     filtered_data()
   })
 }
+

@@ -1,6 +1,8 @@
 # Load necessary libraries
 library(shiny)
 library(shinydashboard)
+library(solarEclipses)
+
 
 # Define the UI using shinydashboard
 ui <- dashboardPage(
@@ -24,15 +26,15 @@ ui <- dashboardPage(
             selectInput(
               inputId = "eclipse_type",
               label = "Select Eclipse Type:",
-              choices = unique(eclipse_data$Type),
-              selected = unique(eclipse_data$Type)[1]
+              choices = unique(clean_eclipse_data$Type),
+              selected = unique(clean_eclipse_data$Type)[1]
             ),
             sliderInput(
               inputId = "duration_filter",
               label = "Select Minimum Duration (in minutes):",
-              min = min(eclipse_data$duration, na.rm = TRUE),
-              max = max(eclipse_data$duration, na.rm = TRUE),
-              value = min(eclipse_data$duration, na.rm = TRUE)
+              min = min(clean_eclipse_data$duration, na.rm = TRUE),
+              max = max(clean_eclipse_data$duration, na.rm = TRUE),
+              value = min(clean_eclipse_data$duration, na.rm = TRUE)
             )
           ),
           box(

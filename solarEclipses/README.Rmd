@@ -18,38 +18,36 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of solarEclipses is to ...
+The goal of solarEclipses is to provide easy access to clean and structured data on solar eclipses for analysis and visualization. This R package includes detailed information on various types of solar eclipses, such as total and annular eclipses, along with their key attributes, including date, location, duration, and name. 
 
 ## Installation
 
 You can install the development version of solarEclipses from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("ETC5523-2024/assignment-4-packages-and-shiny-apps-Fengz924")
+# Install the development version from GitHub
+devtools::install_github("Fengz924/solarEclipses")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to load the dataset.
 
 ```{r example}
 library(solarEclipses)
-## basic example code
+data("clean_eclipse_data")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+The following code allow you to see the summary of the dataset:
 
 ```{r cars}
-summary(cars)
+summary(clean_eclipse_data)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
 You can also embed plots, for example:
 
 ```{r pressure, echo = FALSE}
-plot(pressure)
+plot(clean_eclipse_data$duration)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

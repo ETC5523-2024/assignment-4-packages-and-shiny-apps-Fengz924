@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Feng", "Zhu", , "fzhu0011@student.monash.edu", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: The Eclipse Data Explorer is an interactive Shiny dashboard designed to visualize and analyze solar eclipse events. Built using data from the solarEclipses package, the app enables users to filter eclipses by type (e.g., total, annular) and minimum duration.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -16,3 +16,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL:https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-Fengz924/
