@@ -6,6 +6,13 @@
 \usage{
 launch_app()
 }
+\value{
+Opens a new web window displaying the interactive Shiny app.
+}
 \description{
+This Shiny app allows users to explore solar eclipse data interactively.
+Users can filter by eclipse type and minimum duration, visualize the locations on a map,
+and view the filtered data in a table.
+
 This function launches the Shiny app included in the package.
 }
