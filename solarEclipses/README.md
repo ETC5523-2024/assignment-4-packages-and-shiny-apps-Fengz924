@@ -78,3 +78,6 @@ The `solarEclipses::launch_app()` function starts an interactive Shiny applicati
 ``` r
 solarEclipses::launch_app()
 ```
+
+
+The pkgdown site can be access through this link: [solar Eclipses](https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-Fengz924/)
